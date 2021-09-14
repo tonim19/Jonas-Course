@@ -5,19 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Toni Morovic</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header>
-      <img src="./img/logo.png" alt="Logo image" />
-      <ul>
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#work">WORK</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-      </ul>
-    </header>
-    <main>
+      <nav>
+        <img src="./img/logo.png" alt="Logo image" />
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#work">WORK</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
       <section id="home">
         <h2>HELLO THERE</h2>
         <div>
@@ -30,9 +37,14 @@
             <a href="#about">MORE ABOUT ME</a>
           </div>
         </div>
-        <p>SCROLL DOWN</p>
+        <a href="#about">SCROLL DOWN <i class="fas fa-chevron-down"></i></a>
       </section>
-      <section id="about"></section>
+    </header>
+    <main>
+      <section id="about">
+        <h3>ABOUT</h2>
+        <h2>Personal</h2>
+      </section>
       <section id="work"></section>
     </main>
     <footer></footer>
