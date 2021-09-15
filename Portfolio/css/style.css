@@ -22,7 +22,7 @@ header > nav {
 
 header {
   position: relative;
-  background: url("./img/cover.jpg");
+  background: url("../img/cover.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -69,6 +69,7 @@ header ul > li > a {
 
 header ul > li > a:hover {
   color: var(--main-bg-color);
+  transition: color 0.2s ease-in-out;
 }
 
 #home {
@@ -132,6 +133,7 @@ header ul > li > a:hover {
 #home > div > .right > a:hover {
   background-color: var(--main-bg-color);
   color: #fff;
+  transition: background-color 0.2s ease-in-out;
 }
 
 #home a {
@@ -142,6 +144,7 @@ header ul > li > a:hover {
 
 #home a:hover {
   color: var(--main-bg-color);
+  transition: color 0.2s ease-in-out;
 }
 
 #home a i {
