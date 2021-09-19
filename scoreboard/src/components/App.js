@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import Player from "./Player";
+import AddPlayerForm from "./AddPlayerForm";
 
 class App extends Component {
   state = {
@@ -44,11 +45,26 @@ class App extends Component {
     });
   };
 
+  prevPlayerId = 4;
+
   handleRemovePlayer = (id) => {
     this.setState((prevState) => {
       return {
         players: prevState.players.filter((p) => p.id !== id),
       };
+    });
+  };
+
+  handleAddPlayer = (name) => {
+    this.setState({
+      players: [
+        ...this.state.players,
+        {
+          name: name,
+          score: 0,
+          id: (this.prevPlayerId += 1),
+        },
+      ],
     });
   };
 
@@ -69,6 +85,7 @@ class App extends Component {
             removePlayer={this.handleRemovePlayer}
           />
         ))}
+        <AddPlayerForm addPlayer={this.handleAddPlayer} />
       </div>
     );
   }
