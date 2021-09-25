@@ -7,22 +7,23 @@
     <label for="amount">Amount</label>
     <input type="text" id="amount" v-model="amount" required />
     <div id="selection">
-      <input
-        @click="toggleIncome"
+      <button
+        @click="this.btnIncome = true"
         :style="btnIncome === true ? 'background-color: rgb(46, 255, 46)' : ''"
         class="btnIncome"
-        type="button"
-        value="INCOME"
-      />
-      <input
-        @click="toggleExpense"
+        type="submit"
+      >
+        INCOME
+      </button>
+      <button
+        @click="this.btnExpense = true"
         :style="btnExpense === true ? 'background-color: rgb(255, 55, 55)' : ''"
         class="btnExpense"
-        type="button"
-        value="EXPENSE"
-      />
+        type="submit"
+      >
+        EXPENSE
+      </button>
     </div>
-    <button type="submit">Add Transaction</button>
   </form>
 </template>
 
@@ -47,22 +48,8 @@ export default {
       this.$emit("passItems", this.item, Number.parseFloat(this.amount));
       this.item = "";
       this.amount = "";
-    },
-    toggleIncome() {
-      if (!this.btnExpense) {
-        this.btnIncome = !this.btnIncome;
-      } else {
-        this.btnIncome = !this.btnIncome;
-        this.btnExpense = !this.btnExpense;
-      }
-    },
-    toggleExpense() {
-      if (!this.btnIncome) {
-        this.btnExpense = !this.btnExpense;
-      } else {
-        this.btnIncome = !this.btnIncome;
-        this.btnExpense = !this.btnExpense;
-      }
+      this.btnIncome = false;
+      this.btnExpense = false;
     },
   },
 };
