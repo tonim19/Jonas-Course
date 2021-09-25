@@ -106,6 +106,7 @@ input {
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
+  margin: 0.5rem 0;
 }
 .btnIncome {
   padding: 0.8rem 0;
