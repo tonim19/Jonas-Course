@@ -25,7 +25,7 @@ export default {
   },
 
   methods: {
-    async getWeather(location) {
+    getWeather(location) {
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${this.apiKey}&units=metric`
       )
