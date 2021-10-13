@@ -1,13 +1,7 @@
 <template>
   <header id="header">
-    <form>
-      <input
-        type="text"
-        v-model="location"
-        @keyup.enter="getWeather"
-        placeholder="Search..."
-        required
-      />
+    <form @submit="getWeather">
+      <input type="text" v-model="location" placeholder="Search..." required />
     </form>
   </header>
 </template>

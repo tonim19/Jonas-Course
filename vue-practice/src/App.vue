@@ -30,7 +30,10 @@ export default {
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${this.apiKey}&units=metric`
       )
         .then((res) => res.json())
-        .then((data) => this.injectData(data));
+        .then((data) => {
+          this.injectData(data);
+          console.log(data);
+        });
     },
     injectData(data) {
       this.weather = data;
