@@ -1,6 +1,6 @@
 <template>
   <header id="header">
-    <form action="#">
+    <form>
       <input
         type="text"
         v-model="location"
