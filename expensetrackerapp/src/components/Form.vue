@@ -109,7 +109,6 @@ input {
   cursor: pointer;
 }
 button {
-  border: 1px solid #b154f7;
   background-color: #b154f7;
   outline: #7134a0bb solid 1px;
   width: 100%;
