@@ -21,7 +21,7 @@ export default {
     };
   },
   methods: {
-    async getWeather(e) {
+    getWeather(e) {
       e.preventDefault();
       this.$emit("getWeather", this.location);
       this.location = "";
