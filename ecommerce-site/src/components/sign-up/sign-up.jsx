@@ -23,30 +23,23 @@ class SignUp extends Component {
       alert("passwords dont match");
       return;
     } else {
-      try {
-        createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            // ...
-            createUserProfileDocument(user, { displayName });
-            console.log(user);
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // ..
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // ...
+          createUserProfileDocument(user, { displayName });
+          console.log(user);
+          this.setState({
+            displayName: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
           });
-
-        this.setState({
-          displayName: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
+        })
+        .catch((error) => {
+          console.log(error);
         });
-      } catch (error) {
-        console.log(error);
-      }
     }
   };
 
