@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { getDatabase } from "firebase/database";
+import { getFirestore } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,10 +18,36 @@ const firebaseConfig = {
   appId: "1:372840109922:web:6d1739c7cd0e4cd0ac3e3b",
 };
 
+export const createUserProfileDocument = async (user, additionalData) => {
+  if (!user) return;
+
+  try {
+    const userRef = doc(db, `users/${user.uid}`);
+    const docSnap = await getDoc(userRef);
+    if (!docSnap.exists()) {
+      const { displayName, email } = user;
+      const createdAt = new Date();
+      try {
+        await setDoc(userRef, {
+          displayName,
+          email,
+          createdAt,
+          ...additionalData,
+        });
+      } catch (error) {
+        console.log("error creating user", error.message);
+      }
+    }
+    return userRef;
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+};
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export const database = getDatabase(app);
+export const db = getFirestore();
 
 export const auth = getAuth();
 
@@ -34,7 +61,6 @@ export const signInWithGoogle = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      console.log(user);
       // ...
     })
     .catch((error) => {
