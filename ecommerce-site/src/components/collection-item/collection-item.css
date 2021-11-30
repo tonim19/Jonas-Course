@@ -1,5 +1,5 @@
 .collection-item {
-  width: 22%;
+  width: 22vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,6 +11,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  margin: 0 5px;
 }
 
 .collection-item .image {
@@ -19,6 +21,25 @@
   background-size: cover;
   background-position: center;
   margin-bottom: 5px;
+}
+
+.collection-item .custom-button {
+  width: 80%;
+  opacity: 0.7;
+  position: absolute;
+  top: 255px;
+  display: none;
+}
+
+.collection-item:hover .image {
+  opacity: 0.8;
+}
+
+.collection-item:hover .custom-button {
+  opacity: 0.85;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .collection-item .collection-footer {
@@ -34,11 +55,11 @@
 }
 
 .collection-item .collection-footer .name {
-  width: 90%;
+  width: 85%;
   margin-bottom: 15px;
 }
 
 .collection-item .collection-footer .price {
-  width: 10%;
+  width: 15%;
 }
 /*# sourceMappingURL=collection-item.css.map */

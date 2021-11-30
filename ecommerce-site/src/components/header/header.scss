@@ -9,6 +9,10 @@
     height: 100%;
     width: 70px;
     padding: 25px;
+
+    .logo {
+      transform: translate(-25%, -25%);
+    }
   }
 
   .options {

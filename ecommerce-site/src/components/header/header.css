@@ -16,6 +16,11 @@
   padding: 25px;
 }
 
+.header .logo-container .logo {
+  -webkit-transform: translate(-25%, -25%);
+          transform: translate(-25%, -25%);
+}
+
 .header .options {
   width: 50%;
   height: 100%;
