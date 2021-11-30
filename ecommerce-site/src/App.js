@@ -11,6 +11,9 @@ import { Navigate } from "react-router";
 import HomePage from "./pages/homepage/homepage";
 import ShopPage from "./pages/shop/shop";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-out/sign-in-and-sign-out";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "./redux/user/user-selectors";
+import CheckoutPage from "./pages/checkout/checkout";
 
 class App extends Component {
   unsubscribeFromAuth = null;
@@ -45,6 +48,7 @@ class App extends Component {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/shop" element={<ShopPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
           <Route
             path="/signin"
             element={
@@ -61,11 +65,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => {
-  return {
-    currentUser: user.currentUser,
-  };
-};
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {
